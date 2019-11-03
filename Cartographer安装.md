@@ -88,8 +88,8 @@ sudo make install
 # 3. 安装prtobuf 3.0
 
 ```bash
-cd  Documents/ceres-solver
-git clone https://github.com/ceres-solver/ceres-solver.git
+cd  ~/Documents
+git clone https://github.com/google/protobuf.git
 cd protobuf
 git checkout v3.6.1
 mkdir build
