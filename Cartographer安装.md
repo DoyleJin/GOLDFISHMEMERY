@@ -95,7 +95,7 @@ sudo make install
 
 用make -j带一个参数，可以把项目在进行并行编译，比如在一台双核的机器上，完全可以用make -j4，让make最多允许4个编译命令同时执行，这样可以更有效的利用CPU资源。并不是j后面加的数字越大越好，还要看文件支不支持多线程编译。
 
-# 3. 安装prtobuf 3.0
+# 4. 安装prtobuf 3.0
 
 protocol buffers 是一种语言无关、平台无关、可扩展的序列化结构数据的方法，它可用于（数据）通信协议、数据存储等
 
@@ -116,7 +116,7 @@ make -j4
 sudo make install
 ```
 
-# 4. 安装cartographer
+# 5. 安装cartographer
 
 ```bash
 cd ..
@@ -132,7 +132,7 @@ sudo make install
 
 ​		试了一下j4， 并没有感觉编译变很快
 
-# 5．安装cartographer_ros
+# 6．安装cartographer_ros
 
 ```bash
 cd
@@ -146,13 +146,13 @@ catkin_make_isolated --install --use-ninja
 ######!!!!!!!不要用catkin_make，之后会碰到各种错
 ```
 
-# 6．安装完成，下载测试用的bag文件
+# 7．安装完成，下载测试用的bag文件
 
 点击下述链接下载文件，保存到桌面
 
 [下载链接]: https://www.bwbot.org/s/vQ2D9Z
 
-# 7．启动demo演示
+# 8．启动demo演示
 
 正常可以看到rviz启动并开始建图,根据个人平台计算能力不同，本demo完整运行时间一般为半个小时到1个小时之间(实际测试2个小时)
 
@@ -173,7 +173,7 @@ roslaunch cartographer_ros offline_backpack_2d.launch  bag_filenames:=${HOME}/De
 roslaunch cartographer_ros offline_backpack_3d.launch  bag_filenames:=${HOME}/Desktop/b3-2016-04-05-14-14-00.bag
 ```
 
-# 8．提取建立的地图，结束测试
+# 9．提取建立的地图，结束测试
 
 上面步骤7会生成一个pbstream文件，用cartographer_ assets_writer可以转换成栅格地图
 
@@ -185,13 +185,5 @@ roslaunch cartographer_ros offline_backpack_2d.launch  bag_filenames:=${HOME}/De
 
 ![](/home/doyel/Pictures/Screenshot from 2019-10-31 09-32-55.png)
 
-# 后续处理
 
-把所有生成的文件移到了工作空间下
-
-
-
-# 注：
-
-第2-4步，安装ceres solver，prtobuf 3.0，cartographer，均安装到了根目录下，位置和ros差不多，其安装包在Documents下，为了方便文件管理，可以将其移动到与cartographer_ws并列的文件夹下（建立父文件夹，把安装包和工作空间全部包括）
 
