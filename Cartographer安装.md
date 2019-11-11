@@ -150,7 +150,7 @@ catkin_make_isolated --install --use-ninja
 
 点击下述链接下载文件，保存到桌面
 
-[下载链接]: https://www.bwbot.org/s/vQ2D9Z
+https://www.bwbot.org/s/vQ2D9Z
 
 # 8．启动demo演示
 
