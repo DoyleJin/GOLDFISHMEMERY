@@ -163,9 +163,6 @@ source install_isolated/setup.bash
 roslaunch cartographer_ros offline_backpack_2d.launch  bag_filenames:=${HOME}/Desktop/cartographer_paper_deutsches_museum.bag
 ```
 
-![rviz启动](/home/doyel/Pictures/Screenshot from 2019-10-31 09-29-21.png)
-
-
 
 3d demo 
 
@@ -175,15 +172,22 @@ roslaunch cartographer_ros offline_backpack_3d.launch  bag_filenames:=${HOME}/De
 
 # 9．提取建立的地图，结束测试
 
-上面步骤7会生成一个pbstream文件，用cartographer_ assets_writer可以转换成栅格地图
-
+完成轨迹, 不接受进一步的数据。
 ```
-roslaunch cartographer_ros offline_backpack_2d.launch  bag_filenames:=${HOME}/Desktop/cartographer_paper_deutsches_museum.bag
+rosservice call /finish_trajectory 0
+```
+序列化保存其当前状态
+```
+rosservice call /write_state "{filename: '${HOME}/Downloads/mymap.pbstream'}"
+```
+将pbstream转换为pgm和yaml
+```
+rosrun cartographer_ros cartographer_pbstream_to_ros_map -map_filestem=${HOME}/Downloads/mymap -pbstream_filename=${HOME}/Downloads/mymap.pbstream -resolution=0.05
 ```
 
-现在在home目录下的Desktop文件夹内会生成建立的地图文件，这两个文件（pgm 和 yaml）在ros中的map_server中可以加载使用
+现在在home目录下的Downloads文件夹内会生成建立的地图文件，这两个文件（pgm 和 yaml）在ros中的map_server中可以加载使用
 
-![](/home/doyel/Pictures/Screenshot from 2019-10-31 09-32-55.png)
+
 
 
 
