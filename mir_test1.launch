@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+  
+  
+ 
+
+  
+  <include file="$(find iqr_4d_bringup)/launch/turtlebot_world1.launch"> 
+      <arg name="world_file"  value="$(find iqr_4d_description)/worlds/jdworld3.world"/>
+      <!--param name="robot_description" command="$(find xacro)/xacro - -inorder '$(find mbot_description)/urdf/xacro/gazebo/mbot_with_camera_gazebo.xacro'" /--> 
+      <!--arg name="world_file"  value="$(find iqr_4d_description)/worlds/zoulang2.world"/
+  <include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">-->
+  </include>
+
+  <include file="$(find turtlebot_teleop)/launch/keyboard_teleop.launch"/>
+
+  <include file="$(find turtlebot_gazebo)/launch/gmapping_demo.launch"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find turtlebot_rviz_launchers)/rviz/navigation.rviz"/>
+  
+</launch>
